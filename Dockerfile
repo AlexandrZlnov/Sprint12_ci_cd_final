@@ -22,3 +22,4 @@ COPY *.db ./
 COPY --from=builder app/parcel_tracker ./
 
 CMD ["./parcel_tracker"]
+
