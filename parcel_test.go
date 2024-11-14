@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"fmt"
 	"math/rand"
 	"testing"
 	"time"
@@ -53,8 +54,11 @@ func TestAddGetDelete(t *testing.T) {
 
 	// delete
 	err = store.Delete(parcel.Number)
+	if err != nil {
+		fmt.Println(err)
+	}
 
-	stored, err = store.Get(parcel.Number)
+	_, err = store.Get(parcel.Number)
 	require.Equal(t, sql.ErrNoRows, err)
 }
 
